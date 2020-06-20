@@ -2,13 +2,14 @@ package com.thoughtworks.movierental;
 
 import java.util.List;
 
-public class TextStatement {
+public class HtmlStatement {
+
     private final String customerName;
     private final double totalAmount;
     private final int totalFrequentRenterPoints;
     private final List<Rental> rentals;
 
-    public TextStatement(String customerName,
+    public HtmlStatement(String customerName,
                          double totalAmount,
                          int totalFrequentRenterPoints,
                          List<Rental> rentals) {
@@ -23,22 +24,22 @@ public class TextStatement {
     }
 
     String header() {
-        return "Rental Record for " + customerName + "\n";
+        return "<h1>Rental Record for <b>" + customerName + "</b></h1><br/>";
     }
 
     String details() {
         String result = "";
         for (Rental rental : rentals) {
-            result += "\t" + rental.getMovie().getTitle() + "\t" +
-                    rental.amount() + "\n";
+            result += rental.getMovie().getTitle() + " " +
+                    rental.amount() + "<br/>";
         }
         return result;
     }
 
     String footer() {
-        String result = "Amount owed is " + totalAmount + "\n";
-        result += "You earned " + totalFrequentRenterPoints
-                + " frequent renter points";
+        String result = "Amount owed is <b>" + totalAmount + "</b><br/>";
+        result += "You earned <b>" + totalFrequentRenterPoints
+                + "</b> frequent renter points";
         return result;
     }
 }
