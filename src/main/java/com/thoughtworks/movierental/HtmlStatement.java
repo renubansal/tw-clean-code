@@ -1,21 +1,13 @@
 package com.thoughtworks.movierental;
 
-import java.util.List;
-
 public class HtmlStatement {
 
     private final String customerName;
-    private final double totalAmount;
-    private final int totalFrequentRenterPoints;
-    private final List<Rental> rentals;
+    private final Rentals rentals;
 
     public HtmlStatement(String customerName,
-                         double totalAmount,
-                         int totalFrequentRenterPoints,
-                         List<Rental> rentals) {
+                         Rentals rentals) {
         this.customerName = customerName;
-        this.totalAmount = totalAmount;
-        this.totalFrequentRenterPoints = totalFrequentRenterPoints;
         this.rentals = rentals;
     }
 
@@ -37,8 +29,8 @@ public class HtmlStatement {
     }
 
     String footer() {
-        String result = "Amount owed is <b>" + totalAmount + "</b><br/>";
-        result += "You earned <b>" + totalFrequentRenterPoints
+        String result = "Amount owed is <b>" + rentals.totalAmount() + "</b><br/>";
+        result += "You earned <b>" + rentals.totalFrequentRenterPoints()
                 + "</b> frequent renter points";
         return result;
     }
