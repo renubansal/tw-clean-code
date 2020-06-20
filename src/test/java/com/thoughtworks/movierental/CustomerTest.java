@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class CustomerTest {
     @Test
-    public void test(){
+    public void shouldGetPrintStatement() {
         Customer customer = new Customer("Ray");
 
         Movie deadpoolMovie = new Movie("Deadpool", 1);
@@ -27,7 +27,7 @@ public class CustomerTest {
         return "Rental Record for Ray\n" +
                 "\tDeadpool\t12.0\n" +
                 "\tAvengers\t2.0\n" +
-                "\tMalgudi Days\t1.5\n" +
+                "\tHome Alone\t1.5\n" +
                 "Amount owed is 15.5\n" +
                 "You earned 4 frequent renter points";
     }
