@@ -22,7 +22,7 @@ public class Rental {
     }
 
     double amount() {
-        return movie.calculateCharge(daysRented);
+        return movie.calculateChargesFor(daysRented);
     }
 
     private boolean isBonusApplicable() {

@@ -4,12 +4,12 @@ public class Movie {
 
     private String title;
     private int priceCode;
-    private MovieType type;
+    private PriceInfo moviePriceInfo;
 
     public Movie(String title, int priceCode) {
         this.title = title;
         this.priceCode = priceCode;
-        this.type = MovieType.values()[priceCode];
+        this.moviePriceInfo = PriceInfo.values()[priceCode];
     }
 
     public String getTitle() {
@@ -17,12 +17,15 @@ public class Movie {
     }
 
     boolean isNewRelease() {
-        return priceCode == MovieType.NEW_RELEASE.getPriceCode();
+        return priceCode == PriceInfo.NEW_RELEASE.getPriceCode();
     }
 
-    double calculateCharge(int dayRented) {
-        if(dayRented < type.getNormalDayCount())
-            return type.getNormalDayCharges();
-        return type.getNormalDayCharges() + (dayRented - type.getNormalDayCount()) * type.getExtendedDayCharges();
+    double calculateChargesFor(int dayRented) {
+        if(dayRented < moviePriceInfo.getAllowanceDays())
+            return moviePriceInfo.getBaseCharge();
+
+        int extraDays = dayRented - moviePriceInfo.getAllowanceDays();
+        return moviePriceInfo.calculateChargesFor(extraDays);
     }
+
 }
