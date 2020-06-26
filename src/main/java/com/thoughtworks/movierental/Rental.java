@@ -25,25 +25,30 @@ public class Rental {
         double amount = 0;
         switch (movie.getPriceCode()) {
             case Movie.REGULAR:
-                amount += 2;
-                if (daysRented > 2)
-                    amount += (daysRented - 2) * 1.5;
+                amount = calculateCharges(2, 2, 1.5);
                 break;
             case Movie.NEW_RELEASE:
-                amount += daysRented * 3;
+                amount = calculateCharges(0, 0, 3);
+                break;
+            case Movie.BLURAY:
+                amount = calculateCharges(0, 0, 4);
                 break;
             case Movie.CHILDRENS:
-                amount += 1.5;
-                if (daysRented > 3)
-                    amount += (daysRented - 3) * 1.5;
+                amount = calculateCharges(1.5, 3, 1.5);
                 break;
         }
         return amount;
     }
 
+    private double calculateCharges(double baseCharge, int dayAllowance, double charge) {
+        if(daysRented < dayAllowance)
+            return baseCharge;
+        return baseCharge + daysRented - dayAllowance * charge;
+    }
+
     private boolean isBonusApplicable() {
-    return movie.isNewRelease()
-            &&
-            daysRented > 1;
-  }
+        return movie.isNewRelease()
+                &&
+                daysRented > 1;
+    }
 }
