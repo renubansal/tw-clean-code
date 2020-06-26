@@ -1,21 +1,15 @@
 package com.thoughtworks.movierental;
 
 public class Movie {
-    public static final int REGULAR = 0;
-    public static final int NEW_RELEASE = 1;
-    public static final int CHILDRENS = 2;
-    public static final int BLURAY = 3;
 
     private String title;
     private int priceCode;
+    private MovieType type;
 
     public Movie(String title, int priceCode) {
         this.title = title;
         this.priceCode = priceCode;
-    }
-
-    public int getPriceCode() {
-        return priceCode;
+        this.type = MovieType.values()[priceCode];
     }
 
     public String getTitle() {
@@ -23,6 +17,12 @@ public class Movie {
     }
 
     boolean isNewRelease() {
-        return priceCode == NEW_RELEASE;
+        return priceCode == MovieType.NEW_RELEASE.getPriceCode();
+    }
+
+    double calculateCharge(int dayRented) {
+        if(dayRented < type.getNormalDayCount())
+            return type.getNormalDayCharges();
+        return type.getNormalDayCharges() + (dayRented - type.getNormalDayCount()) * type.getExtendedDayCharges();
     }
 }

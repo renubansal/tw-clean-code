@@ -47,9 +47,9 @@ public class RentalTest {
     }
 
     @Test
-    public void getTestForBlurayMovie() {
-        Movie childrenMovie = new Movie("A", 3);
-        Rental rental = new Rental(childrenMovie, 5);
+    public void getAmountForBlurayMovie() {
+        Movie blurayMovie = new Movie("A", 3);
+        Rental rental = new Rental(blurayMovie, 5);
         double actualAmount = rental.amount();
         assertEquals(20, actualAmount, 0.01);
     }
