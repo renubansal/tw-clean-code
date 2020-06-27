@@ -1,22 +1,30 @@
 package com.thoughtworks.movierental;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class CustomerTest {
-    @Test
-    public void shouldGetPrintStatement() {
-        Customer customer = new Customer("Ray");
+    Customer customer;
+
+    @Before
+    public void setUp() throws Exception {
+        customer = new Customer("Ray");
 
         Movie deadpoolMovie = new Movie("Deadpool", 1, 4);
         Movie avengersMovie = new Movie("Avengers", 0, 2);
         Movie homeAloneMovie = new Movie("Home Alone", 2,3 );
+        Movie bluRay = new Movie("Home Alone", 3,3);
 
         customer.addRental(new Rental(deadpoolMovie));
         customer.addRental(new Rental(avengersMovie));
         customer.addRental(new Rental(homeAloneMovie));
+        customer.addRental(new Rental(bluRay));
+    }
 
+    @Test
+    public void shouldGetPrintStatement() {
         String actualStatement = customer.statement();
         String expectedString = getExpectedString();
 
@@ -25,16 +33,6 @@ public class CustomerTest {
 
     @Test
     public void shouldGetPrintHtmlStatement() {
-        Customer customer = new Customer("Ray");
-
-        Movie deadpoolMovie = new Movie("Deadpool", 1, 4);
-        Movie avengersMovie = new Movie("Avengers", 0, 2);
-        Movie homeAloneMovie = new Movie("Home Alone", 2, 3);
-
-        customer.addRental(new Rental(deadpoolMovie));
-        customer.addRental(new Rental(avengersMovie));
-        customer.addRental(new Rental(homeAloneMovie));
-
         String actualStatement = customer.htmlStatement();
         String expectedString = getExpectedHtmlStatement();
 
@@ -46,8 +44,9 @@ public class CustomerTest {
                 "\tDeadpool\t12.0\n" +
                 "\tAvengers\t2.0\n" +
                 "\tHome Alone\t1.5\n" +
-                "Amount owed is 15.5\n" +
-                "You earned 4 frequent renter points";
+                "\tHome Alone\t12.0\n" +
+                "Amount owed is 27.5\n" +
+                "You earned 8 frequent renter points";
     }
 
     private String getExpectedHtmlStatement() {
@@ -55,8 +54,9 @@ public class CustomerTest {
                 "Deadpool 12.0<br/>" +
                 "Avengers 2.0<br/>" +
                 "Home Alone 1.5<br/>" +
-                "Amount owed is <b>15.5</b><br/>" +
-                "You earned <b>4</b> frequent renter points";
+                "Home Alone 12.0<br/>" +
+                "Amount owed is <b>27.5</b><br/>" +
+                "You earned <b>8</b> frequent renter points";
     }
 
 }
