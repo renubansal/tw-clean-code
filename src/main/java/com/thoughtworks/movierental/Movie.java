@@ -21,7 +21,7 @@ public class Movie {
         return title;
     }
 
-    Price price() {
+    private Price price() {
         switch (priceCode) {
             case Movie.REGULAR:
                 return new RegularPrice();
