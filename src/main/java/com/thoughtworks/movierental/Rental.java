@@ -1,7 +1,7 @@
 package com.thoughtworks.movierental;
 
 public class Rental {
-    Movie movie;
+    private Movie movie;
 
     public Rental(Movie movie) {
         this.movie = movie;

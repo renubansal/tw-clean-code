@@ -22,8 +22,9 @@ public class HtmlStatement {
     String details() {
         String result = "";
         for (Rental rental : rentals) {
-            result += rental.getMovie().getTitle() + " " +
-                    rental.movie.amount() + "<br/>";
+            Movie movie = rental.getMovie();
+            result += movie.getTitle() + " " +
+                    movie.amount() + "<br/>";
         }
         return result;
     }

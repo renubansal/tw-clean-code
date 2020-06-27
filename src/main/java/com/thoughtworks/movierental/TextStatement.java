@@ -21,8 +21,9 @@ public class TextStatement {
     String details() {
         String result = "";
         for (Rental rental : rentals) {
-            result += "\t" + rental.getMovie().getTitle() + "\t" +
-                    rental.movie.amount() + "\n";
+            Movie movie = rental.getMovie();
+            result += "\t" + movie.getTitle() + "\t" +
+                    movie.amount() + "\n";
         }
         return result;
     }

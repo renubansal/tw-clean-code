@@ -7,7 +7,8 @@ public class Rentals extends ArrayList<Rental> {
     public double totalAmount() {
         double totalAmount = 0;
         for (Rental rental : this) {
-            totalAmount += rental.movie.amount();
+            Movie movie = rental.getMovie();
+            totalAmount += movie.amount();
         }
         return totalAmount;
     }
@@ -15,7 +16,8 @@ public class Rentals extends ArrayList<Rental> {
     public int totalFrequentRenterPoints() {
         int totalFrequentRenterPoints = 0;
         for (Rental rental : this) {
-            totalFrequentRenterPoints += rental.movie.frequentRenterPoints();
+            Movie movie = rental.getMovie();
+            totalFrequentRenterPoints += movie.frequentRenterPoints();
         }
         return totalFrequentRenterPoints;
     }

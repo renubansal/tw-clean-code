@@ -7,7 +7,8 @@ public class RentalUtils {
     static double totalAmount(List<Rental> rentals) {
         double totalAmount = 0;
         for (Rental rental : rentals) {
-            totalAmount += rental.movie.amount();
+            Movie movie = rental.getMovie();
+            totalAmount += movie.amount();
         }
         return totalAmount;
     }
@@ -15,7 +16,8 @@ public class RentalUtils {
     static int totalFrequentRenterPoints(List<Rental> rentals) {
         int totalFrequentRenterPoints = 0;
         for (Rental rental : rentals) {
-            totalFrequentRenterPoints += rental.movie.frequentRenterPoints();
+            Movie movie = rental.getMovie();
+            totalFrequentRenterPoints += movie.frequentRenterPoints();
         }
         return totalFrequentRenterPoints;
     }
