@@ -4,9 +4,10 @@ public class BluRayPrice implements Price {
 
     private static final int BONUS_FREQUENT_RENTER_POINTS = 4;
     private static final int DEFAULT_FREQUENT_RENTER_POINTS = 1;
+    public static final int CHARGES = 4;
 
     public double amount(int daysRented) {
-        return daysRented * 4;
+        return daysRented * CHARGES;
     }
 
     @Override
