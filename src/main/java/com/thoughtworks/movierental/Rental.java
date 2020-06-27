@@ -18,12 +18,4 @@ public class Rental {
     double amount() {
         return movie.price().amount(movie.getRentedDays());
     }
-
-    private boolean isBonusApplicable() {
-        return (movie.isNewRelease()
-                ||
-                movie.isBluRay())
-                &&
-                movie.getRentedDays() > 1;
-    }
 }
