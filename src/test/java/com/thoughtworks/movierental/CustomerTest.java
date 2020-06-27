@@ -9,7 +9,7 @@ public class CustomerTest {
     Customer customer;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         customer = new Customer("Ray");
 
         Movie deadpoolMovie = new Movie("Deadpool", 1, 4);
