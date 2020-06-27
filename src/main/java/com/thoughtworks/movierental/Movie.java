@@ -21,10 +21,6 @@ public class Movie {
         return title;
     }
 
-    public int getRentedDays() {
-        return rentedDays;
-    }
-
     Price price() {
         switch (priceCode) {
             case Movie.REGULAR:
@@ -40,11 +36,11 @@ public class Movie {
         }
     }
 
-    boolean isNewRelease() {
-        return priceCode == Movie.NEW_RELEASE;
+    int frequentRenterPoints() {
+        return price().frequentRenterPoint(rentedDays);
     }
 
-    public boolean isBluRay() {
-        return priceCode == Movie.BLURAY;
+    double amount() {
+        return price().amount(rentedDays);
     }
 }

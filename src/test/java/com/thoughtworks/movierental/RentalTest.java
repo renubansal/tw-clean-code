@@ -10,7 +10,7 @@ public class RentalTest {
     public void shouldReturnAmountForRegularMovieWhenRentedDayIsEqualToTwo() {
         Movie regularMovie = new Movie("A", 0,2 );
         Rental rental = new Rental(regularMovie);
-        double actualAmount = rental.amount();
+        double actualAmount = rental.movie.amount();
         assertEquals(2, actualAmount, 0.01);
     }
 
@@ -18,7 +18,7 @@ public class RentalTest {
     public void shouldReturnAmountForRegularMovieWhenRentedDayIsGreaterThanTwo() {
         Movie regularMovie = new Movie("A", 0, 10);
         Rental rental = new Rental(regularMovie);
-        double actualAmount = rental.amount();
+        double actualAmount = rental.movie.amount();
         assertEquals(14, actualAmount, 0.01);
     }
 
@@ -26,7 +26,7 @@ public class RentalTest {
     public void shouldReturnAmountForRegularMovie() {
         Movie regularMovie = new Movie("A", 0, 2);
         Rental rental = new Rental(regularMovie);
-        double actualAmount = rental.amount();
+        double actualAmount = rental.movie.amount();
         assertEquals(2, actualAmount, 0.01);
     }
 
@@ -34,7 +34,7 @@ public class RentalTest {
     public void shouldReturnAmountForNewReleaseMovie() {
         Movie newReleaseMovie = new Movie("A", 1, 2);
         Rental rental = new Rental(newReleaseMovie);
-        double actualAmount = rental.amount();
+        double actualAmount = rental.movie.amount();
         assertEquals(6, actualAmount, 0.01);
     }
 
@@ -42,7 +42,7 @@ public class RentalTest {
     public void shouldReturnAmountForBlurayMovie() {
         Movie blurayMovie = new Movie("A", 3, 5);
         Rental rental = new Rental(blurayMovie);
-        double actualAmount = rental.amount();
+        double actualAmount = rental.movie.amount();
         assertEquals(20, actualAmount, 0.01);
     }
 
@@ -50,7 +50,7 @@ public class RentalTest {
     public void shouldReturnAmountForChildrensWhenRentedDayIsLessThanAndEqualToThree() {
         Movie childrenMovie = new Movie("A", 2,2 );
         Rental rental = new Rental(childrenMovie);
-        double actualAmount = rental.amount();
+        double actualAmount = rental.movie.amount();
         assertEquals(1.5, actualAmount, 0.01);
     }
 
@@ -58,7 +58,7 @@ public class RentalTest {
     public void shouldReturnAmountForChildrensWhenRentedDayIsGreaterThanThree() {
         Movie childrenMovie = new Movie("A", 2, 5);
         Rental rental = new Rental(childrenMovie);
-        double actualAmount = rental.amount();
+        double actualAmount = rental.movie.amount();
         assertEquals(4.5, actualAmount, 0.01);
     }
 
@@ -67,7 +67,7 @@ public class RentalTest {
         Movie newReleaseMovie = new Movie("Title", 1, 5);
         Rental rental = new Rental(newReleaseMovie);
 
-        assertEquals(2, rental.frequentRenterPoints());
+        assertEquals(2, rental.movie.frequentRenterPoints());
     }
 
     @Test
@@ -75,13 +75,13 @@ public class RentalTest {
         Movie regularMovie = new Movie("Title", 0, 5);
         Rental rental = new Rental(regularMovie);
 
-        assertEquals(1, rental.frequentRenterPoints());
+        assertEquals(1, rental.movie.frequentRenterPoints());
     }
 
     @Test
     public void shouldReturnFrequentReturnPointsForBlurayMovie() {
         Movie blurayMovie = new Movie("A", 3, 5);
         Rental rental = new Rental(blurayMovie);
-        assertEquals(4, rental.frequentRenterPoints());
+        assertEquals(4, rental.movie.frequentRenterPoints());
     }
 }

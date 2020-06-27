@@ -23,7 +23,7 @@ public class HtmlStatement {
         String result = "";
         for (Rental rental : rentals) {
             result += rental.getMovie().getTitle() + " " +
-                    rental.amount() + "<br/>";
+                    rental.movie.amount() + "<br/>";
         }
         return result;
     }

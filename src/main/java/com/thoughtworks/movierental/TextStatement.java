@@ -22,7 +22,7 @@ public class TextStatement {
         String result = "";
         for (Rental rental : rentals) {
             result += "\t" + rental.getMovie().getTitle() + "\t" +
-                    rental.amount() + "\n";
+                    rental.movie.amount() + "\n";
         }
         return result;
     }
