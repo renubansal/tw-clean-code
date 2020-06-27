@@ -2,14 +2,13 @@ package com.thoughtworks.movierental;
 
 public class Movie {
 
-    private int priceCode;
-    private String title;
-    private Category category;
-
     public static final int REGULAR = 0;
     public static final int NEW_RELEASE = 1;
     public static final int CHILDRENS = 2;
     public static final int BLURAY = 3;
+    private int priceCode;
+    private String title;
+    private Category category;
 
 
     public Movie(int priceCode, String title) {
@@ -26,12 +25,27 @@ public class Movie {
         return priceCode;
     }
 
+    Price price() {
+        switch (priceCode) {
+            case Movie.REGULAR:
+                return new RegularPrice();
+            case Movie.CHILDRENS:
+                return new ChildrenPrice();
+            case Movie.NEW_RELEASE:
+                return new NewReleasePrice();
+            case Movie.BLURAY:
+                return new BluRayPrice();
+            default:
+                return null;
+        }
+    }
+
     boolean isNewRelease() {
         return priceCode == Category.NEW_RELEASE.getPriceCode();
     }
 
     double calculateChargesFor(int dayRented) {
-        if(dayRented < category.getAllowanceDays())
+        if (dayRented < category.getAllowanceDays())
             return category.getBaseCharges();
 
         int days = dayRented - category.getAllowanceDays();

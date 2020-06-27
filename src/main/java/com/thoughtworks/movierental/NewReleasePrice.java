@@ -1,6 +1,6 @@
 package com.thoughtworks.movierental;
 
-public class NewReleasePrice {
+public class NewReleasePrice implements Price{
 
     public NewReleasePrice() {
     }

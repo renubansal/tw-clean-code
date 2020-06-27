@@ -1,6 +1,6 @@
 package com.thoughtworks.movierental;
 
-public class ChildrenPrice {
+public class ChildrenPrice implements Price {
 
     public ChildrenPrice() {
     }

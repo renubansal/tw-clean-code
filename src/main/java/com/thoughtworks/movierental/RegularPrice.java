@@ -1,6 +1,6 @@
 package com.thoughtworks.movierental;
 
-public class RegularPrice {
+public class RegularPrice implements Price {
 
     public RegularPrice() {
     }

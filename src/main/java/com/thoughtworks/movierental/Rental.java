@@ -46,17 +46,7 @@ public class Rental {
     }
 
     double amountVersion3() {
-        switch (movie.getPriceCode()){
-            case Movie.REGULAR:
-                return new RegularPrice().amount(daysRented);
-            case Movie.NEW_RELEASE:
-                return new NewReleasePrice().amount(daysRented);
-            case Movie.CHILDRENS:
-                return new ChildrenPrice().amount(daysRented);
-            case Movie.BLURAY:
-                return new BluRayPrice().amount(daysRented);
-        }
-        return 0;
+        return movie.price().amount(daysRented);
     }
 
     private boolean isBonusApplicable() {
