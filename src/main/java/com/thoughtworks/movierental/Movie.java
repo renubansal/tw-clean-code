@@ -2,14 +2,14 @@ package com.thoughtworks.movierental;
 
 public class Movie {
 
+    private int id;
     private String title;
-    private int priceCode;
-    private PriceInfo moviePriceInfo;
+    private Category category;
 
-    public Movie(String title, int priceCode) {
+    public Movie(int id, String title) {
         this.title = title;
-        this.priceCode = priceCode;
-        this.moviePriceInfo = PriceInfo.values()[priceCode];
+        this.id = id;
+        this.category = Category.values()[id];
     }
 
     public String getTitle() {
@@ -17,15 +17,15 @@ public class Movie {
     }
 
     boolean isNewRelease() {
-        return priceCode == PriceInfo.NEW_RELEASE.getPriceCode();
+        return id == Category.NEW_RELEASE.getPriceCode();
     }
 
     double calculateChargesFor(int dayRented) {
-        if(dayRented < moviePriceInfo.getAllowanceDays())
-            return moviePriceInfo.getBaseCharge();
+        if(dayRented < category.getAllowanceDays())
+            return category.getBaseCharges();
 
-        int extraDays = dayRented - moviePriceInfo.getAllowanceDays();
-        return moviePriceInfo.calculateChargesFor(extraDays);
+        int days = dayRented - category.getAllowanceDays();
+        return category.calculateChargesFor(days);
     }
 
 }

@@ -9,9 +9,9 @@ public class CustomerTest {
     public void shouldGetPrintStatement() {
         Customer customer = new Customer("Ray");
 
-        Movie deadpoolMovie = new Movie("Deadpool", 1);
-        Movie avengersMovie = new Movie("Avengers", 0);
-        Movie homeAloneMovie = new Movie("Home Alone", 2);
+        Movie deadpoolMovie = new Movie(1, "Deadpool");
+        Movie avengersMovie = new Movie(0, "Avengers");
+        Movie homeAloneMovie = new Movie(2, "Home Alone");
 
         customer.addRental(new Rental(deadpoolMovie, 4));
         customer.addRental(new Rental(avengersMovie, 2));
@@ -27,9 +27,9 @@ public class CustomerTest {
     public void shouldGetPrintHtmlStatement() {
         Customer customer = new Customer("Ray");
 
-        Movie deadpoolMovie = new Movie("Deadpool", 1);
-        Movie avengersMovie = new Movie("Avengers", 0);
-        Movie homeAloneMovie = new Movie("Home Alone", 2);
+        Movie deadpoolMovie = new Movie(1, "Deadpool");
+        Movie avengersMovie = new Movie(0, "Avengers");
+        Movie homeAloneMovie = new Movie(2, "Home Alone");
 
         customer.addRental(new Rental(deadpoolMovie, 4));
         customer.addRental(new Rental(avengersMovie, 2));

@@ -4,8 +4,9 @@ public class Rental {
 
     private static final int BONUS_FREQUENT_RELEASE_POINTS = 2;
     private static final int DEFAULT_FREQUENT_RELEASE_POINTS = 1;
-    private int daysRented;
+
     private Movie movie;
+    private int daysRented;
 
     public Rental(Movie movie, int daysRented) {
         this.movie = movie;
