@@ -32,7 +32,7 @@ public class Rental {
 
     double amountVersion2() {
         MoviePrice moviePriceService = new MoviePrice(daysRented);
-        switch (movie.getId()){
+        switch (movie.getPriceCode()){
             case Movie.REGULAR:
                 return moviePriceService.regularAmount();
             case Movie.CHILDRENS:
@@ -46,7 +46,7 @@ public class Rental {
     }
 
     double amountVersion3() {
-        switch (movie.getId()){
+        switch (movie.getPriceCode()){
             case Movie.REGULAR:
                 return new RegularPrice().amount(daysRented);
             case Movie.NEW_RELEASE:

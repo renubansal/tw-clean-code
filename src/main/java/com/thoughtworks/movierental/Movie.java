@@ -2,7 +2,7 @@ package com.thoughtworks.movierental;
 
 public class Movie {
 
-    private int id;
+    private int priceCode;
     private String title;
     private Category category;
 
@@ -12,22 +12,22 @@ public class Movie {
     public static final int BLURAY = 3;
 
 
-    public Movie(int id, String title) {
+    public Movie(int priceCode, String title) {
         this.title = title;
-        this.id = id;
-        this.category = Category.values()[id];
+        this.priceCode = priceCode;
+        this.category = Category.values()[priceCode];
     }
 
     public String getTitle() {
         return title;
     }
 
-    public int getId() {
-        return id;
+    public int getPriceCode() {
+        return priceCode;
     }
 
     boolean isNewRelease() {
-        return id == Category.NEW_RELEASE.getPriceCode();
+        return priceCode == Category.NEW_RELEASE.getPriceCode();
     }
 
     double calculateChargesFor(int dayRented) {
@@ -39,6 +39,6 @@ public class Movie {
     }
 
     public boolean isBluRay() {
-        return id == Category.BLURAY.getPriceCode();
+        return priceCode == Category.BLURAY.getPriceCode();
     }
 }
