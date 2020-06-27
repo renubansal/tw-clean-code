@@ -35,10 +35,10 @@ public class Movie {
     }
 
     boolean isNewRelease() {
-        return priceCode == Category.NEW_RELEASE.getPriceCode();
+        return priceCode == Movie.NEW_RELEASE;
     }
 
     public boolean isBluRay() {
-        return priceCode == Category.BLURAY.getPriceCode();
+        return priceCode == Movie.BLURAY;
     }
 }
