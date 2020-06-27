@@ -13,21 +13,15 @@ public class MoviePrice {
     }
 
     public double regularAmount() {
-        double amount = 0;
-        if (daysRented > 2) {
-            amount += (daysRented - 2) * 1.5;
-        }
-        amount += 1.5;
-        return amount;
+        if (daysRented < 2)
+            return 1.5;
+        return 1.5 +  (daysRented - 2) * 1.5;
     }
 
     public double childrensAmount() {
-        double amount = 0;
-        if (daysRented > 3) {
-            amount += (daysRented - 3) * 1.5;
-        }
-        amount += 1.5;
-        return amount;
+        if (daysRented < 3)
+            return 1.5;
+        return 1.5 + (daysRented - 3) * 1.5;
     }
 
     public double bluRayAmount() {
