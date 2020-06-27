@@ -1,4 +1,8 @@
-package com.thoughtworks.movierental;
+package com.thoughtworks.movierental.statement;
+
+import com.thoughtworks.movierental.Movie;
+import com.thoughtworks.movierental.Rental;
+import com.thoughtworks.movierental.Rentals;
 
 public class TextStatement {
     private final String customerName;

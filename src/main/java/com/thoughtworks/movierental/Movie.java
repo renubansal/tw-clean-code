@@ -42,7 +42,7 @@ public class Movie {
         return price().frequentRenterPoint(rentedDays);
     }
 
-    double amount() {
+    public double amount() {
         return price().amount(rentedDays);
     }
 }

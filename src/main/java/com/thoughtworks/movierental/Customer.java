@@ -1,5 +1,8 @@
 package com.thoughtworks.movierental;
 
+import com.thoughtworks.movierental.statement.HtmlStatement;
+import com.thoughtworks.movierental.statement.TextStatement;
+
 public class Customer {
     private final Rentals rentals = new Rentals();
     private String name;
