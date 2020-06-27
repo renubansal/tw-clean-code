@@ -2,7 +2,7 @@ package com.thoughtworks.movierental;
 
 public class BluRayPrice implements Price {
 
-    private static final int BONUS_FREQUENT_RENTER_POINTS = 3;
+    private static final int BONUS_FREQUENT_RENTER_POINTS = 4;
     private static final int DEFAULT_FREQUENT_RENTER_POINTS = 1;
 
     public double amount(int daysRented) {

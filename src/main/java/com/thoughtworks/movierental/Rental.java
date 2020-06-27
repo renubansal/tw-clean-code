@@ -17,11 +17,12 @@ public class Rental {
     }
 
     int frequentRenterPoints() {
-        if (!isBonusApplicable())
-            return DEFAULT_FREQUENT_RENTER_POINTS;
-        if (movie.isNewRelease())
-            return NEW_RELEASE_FREQUENT_RENTER_POINTS;
-        return BLURAY_FREQUENT_RENTER_POINTS;
+        return movie.price().frequentRenterPoint(movie.getRentedDays());
+//        if (!isBonusApplicable())
+//            return DEFAULT_FREQUENT_RENTER_POINTS;
+//        if (movie.isNewRelease())
+//            return NEW_RELEASE_FREQUENT_RENTER_POINTS;
+//        return BLURAY_FREQUENT_RENTER_POINTS;
     }
 
     double amount() {
