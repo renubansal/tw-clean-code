@@ -1,5 +1,6 @@
 package com.thoughtworks.movierental;
 
+//break single responsibility principle
 public class MoviePrice {
     private final int daysRented;
 
