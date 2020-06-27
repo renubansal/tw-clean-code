@@ -1,4 +1,4 @@
-package com.thoughtworks.movierental;
+package com.thoughtworks.movierental.price;
 
 public class BluRayPrice implements Price {
 

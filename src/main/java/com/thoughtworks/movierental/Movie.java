@@ -1,5 +1,7 @@
 package com.thoughtworks.movierental;
 
+import com.thoughtworks.movierental.price.*;
+
 public class Movie {
 
     public static final int REGULAR = 0;
