@@ -1,5 +1,6 @@
 package com.thoughtworks.movierental;
 
+//breaks single responnsibility principle
 public enum Category {
     REGULAR(0, 2, 2, 1.5),
     NEW_RELEASE(1, 0, 0, 3),
