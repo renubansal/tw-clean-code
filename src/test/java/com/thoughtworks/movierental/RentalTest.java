@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 public class RentalTest {
 
     @Test
-    public void getTestAmountForRegularWhenRentedDayIsEqualToTwo() {
+    public void shouldReturnAmountForRegularMovieWhenRentedDayIsEqualToTwo() {
         Movie regularMovie = new Movie(0, "A");
         Rental rental = new Rental(regularMovie, 2);
         double actualAmount = rental.amount();
@@ -15,7 +15,7 @@ public class RentalTest {
     }
 
     @Test
-    public void getTestAmountForRegularWhenRentedDayIsGreaterThanTwo() {
+    public void shouldReturnAmountForRegularMovieWhenRentedDayIsGreaterThanTwo() {
         Movie regularMovie = new Movie(0, "A");
         Rental rental = new Rental(regularMovie, 10);
         double actualAmount = rental.amount();
@@ -23,7 +23,7 @@ public class RentalTest {
     }
 
     @Test
-    public void getTestAmountForRegular() {
+    public void shouldReturnAmountForRegularMovie() {
         Movie regularMovie = new Movie(0, "A");
         Rental rental = new Rental(regularMovie, 2);
         double actualAmount = rental.amount();
@@ -31,7 +31,7 @@ public class RentalTest {
     }
 
     @Test
-    public void getTestAmountForNewRelease() {
+    public void shouldReturnAmountForNewReleaseMovie() {
         Movie newReleaseMovie = new Movie(1, "A");
         Rental rental = new Rental(newReleaseMovie, 2);
         double actualAmount = rental.amount();
@@ -39,15 +39,7 @@ public class RentalTest {
     }
 
     @Test
-    public void getTestAmountForChildrensWhenRentedDayIsLessThanAndEqualToThree() {
-        Movie childrenMovie = new Movie(2, "A");
-        Rental rental = new Rental(childrenMovie, 2);
-        double actualAmount = rental.amount();
-        assertEquals(1.5, actualAmount, 0.01);
-    }
-
-    @Test
-    public void getAmountForBlurayMovie() {
+    public void shouldReturnAmountForBlurayMovie() {
         Movie blurayMovie = new Movie(3, "A");
         Rental rental = new Rental(blurayMovie, 5);
         double actualAmount = rental.amount();
@@ -55,7 +47,15 @@ public class RentalTest {
     }
 
     @Test
-    public void getTestAmountForChildrensWhenRentedDayIsGreaterThanThree() {
+    public void shouldReturnAmountForChildrensWhenRentedDayIsLessThanAndEqualToThree() {
+        Movie childrenMovie = new Movie(2, "A");
+        Rental rental = new Rental(childrenMovie, 2);
+        double actualAmount = rental.amount();
+        assertEquals(1.5, actualAmount, 0.01);
+    }
+
+    @Test
+    public void shouldReturnAmountForChildrensWhenRentedDayIsGreaterThanThree() {
         Movie childrenMovie = new Movie(2, "A");
         Rental rental = new Rental(childrenMovie, 5);
         double actualAmount = rental.amount();
