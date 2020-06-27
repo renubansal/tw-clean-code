@@ -1,9 +1,6 @@
 package com.thoughtworks.movierental;
 
-public class NewReleasePrice implements Price{
-
-    public NewReleasePrice() {
-    }
+public class NewReleasePrice implements Price {
 
     public double amount(int daysRented) {
         return daysRented * 3;

@@ -2,9 +2,6 @@ package com.thoughtworks.movierental;
 
 public class RegularPrice implements Price {
 
-    public RegularPrice() {
-    }
-
     public double amount(int daysRented) {
         double amount = 0;
         if (daysRented > 2) {

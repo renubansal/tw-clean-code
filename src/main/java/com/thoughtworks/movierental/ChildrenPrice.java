@@ -2,9 +2,6 @@ package com.thoughtworks.movierental;
 
 public class ChildrenPrice implements Price {
 
-    public ChildrenPrice() {
-    }
-
     public double amount(int daysRented) {
         double amount = 0;
         if (daysRented > 3) {
