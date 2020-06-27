@@ -7,11 +7,9 @@ public class Rental {
     private static final int DEFAULT_FREQUENT_RENTER_POINTS = 1;
 
     private Movie movie;
-    private int daysRented;
 
-    public Rental(Movie movie, int daysRented) {
+    public Rental(Movie movie) {
         this.movie = movie;
-        this.daysRented = daysRented;
     }
 
     public Movie getMovie() {
@@ -27,7 +25,7 @@ public class Rental {
     }
 
     double amount() {
-        return movie.price().amount(daysRented);
+        return movie.price().amount(movie.getRentedDays());
     }
 
     private boolean isBonusApplicable() {
@@ -35,6 +33,6 @@ public class Rental {
                 ||
                 movie.isBluRay())
                 &&
-                daysRented > 1;
+                movie.getRentedDays() > 1;
     }
 }

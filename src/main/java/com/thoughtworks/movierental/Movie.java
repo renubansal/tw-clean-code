@@ -8,15 +8,21 @@ public class Movie {
     public static final int BLURAY = 3;
 
     private int priceCode;
+    private final int rentedDays;
     private String title;
 
-    public Movie(int priceCode, String title) {
+    public Movie(String title, int priceCode, int rentedDays) {
         this.title = title;
         this.priceCode = priceCode;
+        this.rentedDays = rentedDays;
     }
 
     public String getTitle() {
         return title;
+    }
+
+    public int getRentedDays() {
+        return rentedDays;
     }
 
     Price price() {
