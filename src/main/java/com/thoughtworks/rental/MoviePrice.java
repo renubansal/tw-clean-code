@@ -1,4 +1,4 @@
-package com.thoughtworks.movierental;
+package com.thoughtworks.rental;
 
 //break single responsibility principle
 public class MoviePrice {

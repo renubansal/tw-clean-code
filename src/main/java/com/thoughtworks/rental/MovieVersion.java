@@ -1,4 +1,6 @@
-package com.thoughtworks.movierental;
+package com.thoughtworks.rental;
+
+import com.thoughtworks.movierental.*;
 
 public class MovieVersion {
 

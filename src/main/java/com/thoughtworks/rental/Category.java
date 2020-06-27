@@ -1,4 +1,4 @@
-package com.thoughtworks.movierental;
+package com.thoughtworks.rental;
 
 //breaks single responnsibility principle
 public enum Category {
