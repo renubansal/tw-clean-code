@@ -2,9 +2,9 @@ package com.thoughtworks.movierental;
 
 public class Rental {
 
-    private static final int BONUS_FREQUENT_RELEASE_POINTS = 2;
-    private static final int DEFAULT_FREQUENT_RELEASE_POINTS = 1;
-
+    public static final int BLURAY_BONUS_FREQUENT_POINTS = 4;
+    private static final int BONUS_FREQUENT_RENTER_POINTS = 2;
+    private static final int DEFAULT_FREQUENT_RENTER_POINTS = 1;
     private Movie movie;
     private int daysRented;
 
@@ -18,8 +18,11 @@ public class Rental {
     }
 
     int frequentRenterPoints() {
-        return (isBonusApplicable())
-                ? BONUS_FREQUENT_RELEASE_POINTS : DEFAULT_FREQUENT_RELEASE_POINTS;
+        if (!isBonusApplicable())
+            return DEFAULT_FREQUENT_RENTER_POINTS;
+        if (movie.isNewRelease())
+            return BONUS_FREQUENT_RENTER_POINTS;
+        return BLURAY_BONUS_FREQUENT_POINTS;
     }
 
     double amount() {
@@ -27,7 +30,9 @@ public class Rental {
     }
 
     private boolean isBonusApplicable() {
-        return movie.isNewRelease()
+        return (movie.isNewRelease()
+                ||
+                movie.isBluRay())
                 &&
                 daysRented > 1;
     }

@@ -28,4 +28,7 @@ public class Movie {
         return category.calculateChargesFor(days);
     }
 
+    public boolean isBluRay() {
+        return id == Category.BLURAY.getPriceCode();
+    }
 }

@@ -77,4 +77,11 @@ public class RentalTest {
 
         assertEquals(1, rental.frequentRenterPoints());
     }
+
+    @Test
+    public void shouldReturnFrequentReturnPointsForBlurayMovie() {
+        Movie blurayMovie = new Movie(3, "A");
+        Rental rental = new Rental(blurayMovie, 5);
+        assertEquals(4, rental.frequentRenterPoints());
+    }
 }
